@@ -1,0 +1,19 @@
+name: Python libraries
+
+on:
+  push:
+
+jobs:
+  davidkhala-azure:
+    environment: new relic
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - uses: davidkhala/poetry-buildpack@main
+        with:
+          working-directory: py
+          test-entry-point: pytest
+          tests: py/tests
+          extras: new-relic
+        env:
+          NEW_RELIC_LICENSE_KEY: ${{secrets.NEW_RELIC_LICENSE_KEY}}
