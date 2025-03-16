@@ -11,11 +11,13 @@ python = "^3.10"
 davidkhala-utils = "*"
 
 newrelic-telemetry-sdk = { version = "*", optional = true }
+logdna = { version = "*", optional = true }
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
 
 [tool.poetry.extras]
 new-relic = ["newrelic-telemetry-sdk"]
+mezmo = ['logdna']
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

@@ -4,8 +4,7 @@ on:
   push:
 
 jobs:
-  davidkhala-azure:
-    environment: new relic
+  logging:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
@@ -14,6 +13,6 @@ jobs:
           working-directory: py
           test-entry-point: pytest
           tests: py/tests
-          extras: new-relic
         env:
           NEW_RELIC_LICENSE_KEY: ${{secrets.NEW_RELIC_LICENSE_KEY}}
+          LOGDNA_INGESTION_KEY: ${{secrets.LOGDNA_INGESTION_KEY}}

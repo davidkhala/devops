@@ -11,6 +11,7 @@ class Ingestion:
         self.client = LogClient(license_key)
 
     def send(self, message) -> HTTPResponse:
+        # TODO log level. check the API docs
         r = self.client.send(Log(message))
         r.raise_for_status()
         return r
