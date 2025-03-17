@@ -9,6 +9,7 @@ from logdna import LogDNAHandler
 
 class Ingestion:
     timeout = 3
+
     def __init__(self, api_key: str = None, **options):
         if api_key is None:
             api_key = os.environ['LOGDNA_INGESTION_KEY']
@@ -32,8 +33,8 @@ class Ingestion:
                 elif self.i.flag == 'pending':
                     self.i.flag = 'success'
 
-        self.client.internalLogger.addHandler(OnInvalidKey(self))
-
+        handler = OnInvalidKey(self)
+        self.client.internalLogger.addHandler(handler)
         self.client.emit(LogRecord(
             name=self.client.internalLogger.name,
             level=logging.DEBUG,
@@ -49,6 +50,7 @@ class Ingestion:
             ticktock += 1
             if ticktock > Ingestion.timeout:
                 break
+        self.client.internalLogger.removeHandler(handler)
         if self.flag == 'failed':
             if raise_error:
                 raise Exception(expected_error_msg)
