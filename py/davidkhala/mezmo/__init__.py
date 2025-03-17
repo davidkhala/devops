@@ -38,9 +38,9 @@ class Ingestion:
         self.client.emit(LogRecord(
             name=self.client.internalLogger.name,
             level=logging.DEBUG,
-            pathname=__file__,
+            pathname='davidkhala-devops',
             lineno=0,
-            msg='connecting from client...',
+            msg='connected',
             args=(),
             exc_info=None,
         ))
