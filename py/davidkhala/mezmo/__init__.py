@@ -1,11 +1,15 @@
 # https://github.com/logdna/python/blob/master/README.md
 import logging
 import os
-from logging import LogRecord
+from logging import LogRecord as NativeLogRecord
 from time import sleep
 
 from logdna import LogDNAHandler
 
+
+class LogRecord(NativeLogRecord):
+    def __init__(self, source, level, app, lineno, msg, args, exc_info, **kwargs):
+        super().__init__(source, level, app, lineno, msg, args, exc_info, **kwargs)
 
 class Ingestion:
     timeout = 3
@@ -36,9 +40,9 @@ class Ingestion:
         handler = OnInvalidKey(self)
         self.client.internalLogger.addHandler(handler)
         self.client.emit(LogRecord(
-            name=self.client.internalLogger.name,
+            source=self.client.internalLogger.name,
             level=logging.DEBUG,
-            pathname='davidkhala-devops',
+            app='davidkhala-devops',
             lineno=0,
             msg='connected',
             args=(),
