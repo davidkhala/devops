@@ -16,3 +16,5 @@ jobs:
         env:
           NEW_RELIC_LICENSE_KEY: ${{secrets.NEW_RELIC_LICENSE_KEY}}
           LOGDNA_INGESTION_KEY: ${{secrets.LOGDNA_INGESTION_KEY}}
+          LOGTAIL_TOKEN: ${{secrets.LOGTAIL_TOKEN}}
+          LOGTAIL_HOST: ${{vars.LOGTAIL_HOST}}

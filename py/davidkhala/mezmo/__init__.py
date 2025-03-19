@@ -18,12 +18,12 @@ class Ingestion:
         if api_key is None:
             api_key = os.environ['LOGDNA_INGESTION_KEY']
         options['log_error_response'] = True
-        self.client = LogDNAHandler(api_key, options)
+        self.handler = LogDNAHandler(api_key, options)
         self.flag: str = ''
 
     def connect(self):
         self.flag = 'pending'
-        raise_error = not self.client.log_error_response
+        raise_error = not self.handler.log_error_response
         expected_error_msg = 'Please provide a valid ingestion key. Discarding flush buffer'
 
         class OnInvalidKey(logging.Handler):
@@ -38,9 +38,9 @@ class Ingestion:
                     self.i.flag = 'success'
 
         handler = OnInvalidKey(self)
-        self.client.internalLogger.addHandler(handler)
-        self.client.emit(LogRecord(
-            source=self.client.internalLogger.name,
+        self.handler.internalLogger.addHandler(handler)
+        self.handler.emit(LogRecord(
+            source=self.handler.internalLogger.name,
             level=logging.DEBUG,
             app='davidkhala-devops',
             lineno=0,
@@ -54,7 +54,7 @@ class Ingestion:
             ticktock += 1
             if ticktock > Ingestion.timeout:
                 break
-        self.client.internalLogger.removeHandler(handler)
+        self.handler.internalLogger.removeHandler(handler)
         if self.flag == 'failed':
             if raise_error:
                 raise Exception(expected_error_msg)
@@ -63,4 +63,4 @@ class Ingestion:
         return True
 
     def attach(self, logger: logging.Logger):
-        logger.addHandler(self.client)
+        logger.addHandler(self.handler)

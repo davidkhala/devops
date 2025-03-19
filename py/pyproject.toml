@@ -12,12 +12,14 @@ davidkhala-utils = "*"
 
 newrelic-telemetry-sdk = { version = "*", optional = true }
 logdna = { version = "*", optional = true }
+logtail-python = { version = "*", optional = true }
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
 
 [tool.poetry.extras]
 new-relic = ["newrelic-telemetry-sdk"]
 mezmo = ['logdna']
+better-stack = ['logtail-python']
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
