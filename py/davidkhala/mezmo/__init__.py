@@ -42,7 +42,7 @@ class Ingestion:
         self.handler.emit(LogRecord(
             source=self.handler.internalLogger.name,
             level=logging.DEBUG,
-            app='davidkhala-devops',
+            app='api.logs',
             lineno=0,
             msg='connected',
             args=(),
