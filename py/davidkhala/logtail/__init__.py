@@ -1,6 +1,3 @@
-# https://betterstack.com/docs/logs/python/#logging-from-python
-import logging
-
 from davidkhala.syntax.log import AbstractIngestion
 from logtail import LogtailHandler
 

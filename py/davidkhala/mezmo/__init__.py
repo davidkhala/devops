@@ -1,4 +1,3 @@
-# https://github.com/logdna/python/blob/master/README.md
 import logging
 import os
 from logging import LogRecord as NativeLogRecord
