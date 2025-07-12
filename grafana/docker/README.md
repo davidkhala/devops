@@ -1,0 +1,2 @@
+- username: `admin`
+- initial password: `admin`

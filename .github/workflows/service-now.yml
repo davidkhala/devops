@@ -1,0 +1,18 @@
+name: service now
+on:
+  push:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    environment: servicenow(dev)
+    steps:
+      - uses: actions/checkout@main
+      - name: ServiceNow CI/CD Instance Scan # https://github.com/ServiceNow/sncicd-instance-scan stale over years
+        uses: ServiceNow/sncicd-instance-scan@main
+        with:
+          scantype: full # point, suite_combo, suite_scoped, suite_update
+        env:
+          nowUsername: admin
+          nowPassword: ${{ secrets.ADMIN_PASSWORD }}
+          nowScanInstance: ${{vars.INSTANCE}}

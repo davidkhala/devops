@@ -1,0 +1,12 @@
+name: Grafana
+services:
+  core:
+    container_name: core
+    image: grafana/grafana:latest
+    ports:
+      - 3000
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+volumes:
+  grafana-data:
