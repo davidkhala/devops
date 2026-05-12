@@ -16,4 +16,4 @@ Group (Row or Tab) cannot be reused like Library Panel
 - [download: binary only](https://github.com/grafana/grafana-kiosk/releases)
 ## kiosk mode
 在 dashboard URL 后面加：`?kiosk=<value>`
-- value `true`: 可以隐藏Grafana logo
+- value `true` in Grafana Cloud: 可以隐藏Grafana logo
