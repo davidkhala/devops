@@ -12,8 +12,7 @@ Group (Row or Tab) cannot be reused like Library Panel
 
 ## grafana-kiosk
 一个独立的浏览器控制器
-- Go 程序
-
+- [open source](https://github.com/grafana/grafana-kiosk) in Go
 ## kiosk mode
 在 dashboard URL 后面加：`?kiosk=<value>`
 - value `tv` ｜ `fullscreen`:  在 public dashboard 上没有区别
