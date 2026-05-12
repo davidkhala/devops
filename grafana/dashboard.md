@@ -9,3 +9,7 @@ You can nest up to three levels deep, which means a dashboard can have a maximum
 
 ## Limit
 Group (Row or Tab) cannot be reused like Library Panel
+
+## Kiosk mode
+在 dashboard URL 后面加：`?kiosk=<value>`
+- value `tv` ｜ `fullscreen`:  在 public dashboard 上没有区别
