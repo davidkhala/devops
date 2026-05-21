@@ -9,7 +9,7 @@ You can nest up to three levels deep, which means a dashboard can have a maximum
 
 ## Limit
 - Group (Row or Tab) cannot be reused like Library Panel
-- watermark **Powered by Grafana cannot** will appear if the dashboard was shared by `Share externally` on Grafana Cloud
+- watermark **Powered by Grafana** will appear if the dashboard was shared by `Share externally` on Grafana Cloud
 
 
 ## grafana-kiosk
