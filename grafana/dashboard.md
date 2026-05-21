@@ -8,7 +8,9 @@ You can nest up to three levels deep, which means a dashboard can have a maximum
 5. Panels
 
 ## Limit
-Group (Row or Tab) cannot be reused like Library Panel
+- Group (Row or Tab) cannot be reused like Library Panel
+- watermark **Powered by Grafana cannot** will appear if the dashboard was shared by `Share externally` on Grafana Cloud
+
 
 ## grafana-kiosk
 一个独立的浏览器控制器
@@ -17,3 +19,4 @@ Group (Row or Tab) cannot be reused like Library Panel
 ## kiosk mode
 在 dashboard URL 后面加：`?kiosk=<value>`
 - value `true` in Grafana Cloud: 可以隐藏Grafana logo
+
